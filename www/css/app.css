@@ -1,0 +1,175 @@
+
+
+.btHover{
+    width:70%!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+    border-radius: 15px;
+     background:linear-gradient(#666, #101010)!important;
+     box-shadow: 0px 10px 15px #888888;
+}
+
+.btHover a{
+    border-radius: 15px;
+     background: #666;
+     transition: background 0.5s;
+}
+
+.btHover a:hover{
+     background: transparent;
+     transition: background 0s;
+}
+
+
+.bgIonContent{
+    /*background-color:orange;*/
+    background-image:url(../img/home-bg.png);
+    background-repeat:no-repeat;
+    background-size:1024px 768px;
+    top: 0px!important;
+    
+}
+
+
+.buttonCornerTopLeft{
+    border-radius: 15px 0px 0px 0px;
+}
+.buttonCornerBottomLeft{
+    border-radius: 0px 0px 0px 15px;
+}
+
+.bigTitle{
+    position:relative;
+}
+
+#contButton{
+    width:500px;
+    position:absolute;
+    border-radius: 15px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background-color:green;
+}
+
+.bar-header {
+  background-color: rgba(178, 49, 49, 0)!important;
+border: none!important;
+height: 0px;
+}
+
+.bar {
+/*opacity: 0;*/
+border-bottom: none;
+}
+
+
+.bar .title {
+height: 140px;
+font-size: 130px;
+line-height: 140px;
+width: 500px;
+margin-left: auto;
+margin-right: auto;
+text-align: left;
+color:white;
+}
+
+.tabs{
+    /*bottom:200px;*/
+}
+
+.pane{
+    background-color: orange;
+}
+
+
+
+.bgButton{
+    /*width:30%!important;
+  margin-left:auto!important;
+  margin-right:auto!important;*/
+    border:none;
+    background: rgba(255,255,255,1);
+background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,0)));
+background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+
+}
+
+
+#rect{
+    position:absolute;
+    top:0px;
+    left: -795px;
+    z-index: 10;
+    
+   /* top:0px;
+    left:0px;*/
+    /*height:1536px; 
+    width:1617px;*/
+    /*width:100%!important; 
+    height:auto;*/ 
+    
+    
+    /*height:100px!important; 
+    width:auto!important;*/ 
+    
+    /*max-height: 100%;
+    width: auto;*/
+
+    /*background-color:green;
+    background-image:url(../img/voletGauche.png);
+    background-repeat:no-repeat;*/
+    /*background-position:left top;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: 100% 100%;*/
+
+
+}
+
+#rightRect{
+    position:absolute;
+    left: 815px;
+     top: 206px;
+}
+
+.btTransparent{
+    position: absolute;
+    opacity:0;
+
+}
+/*#rectInside{
+    position: absolute;
+    top: 30px;
+    left: 700px;
+    width: 70px;
+    height: 70px;
+    opacity:0;
+}*/
+
+
+
+.leftPanelBt{
+    position: absolute;
+    left: 787px;
+    width: 54px;
+    height: auto;
+}
+
+.isTransparent{
+    opacity:0;
+
+}
+
+.noTransparent{
+    opacity:1;
+
+}
+
+
+
