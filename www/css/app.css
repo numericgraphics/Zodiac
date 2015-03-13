@@ -1,4 +1,6 @@
-
+body,html{
+  overflow:hidden
+}
 
 .btHover{
     width:70%!important;
