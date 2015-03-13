@@ -35,9 +35,9 @@ angular.module('starter', ['ionic',
         
         $ionicPlatform.ready(function () {
             //INITIALIZE WHEN NEEDED  
-            try {
+            //try {
                 
-            } catch (e) { alert('Initializing error'); }
+            //} catch (e) { alert('Initializing error'); }
             
             document.addEventListener("pause", onPause, false);
             startOnReady();

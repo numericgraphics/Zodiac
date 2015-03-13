@@ -20,13 +20,15 @@
             }
 
             scope.resetDemo = function () {
+                Events.triggerEvent(Events.ON_RESUME_APP);
+            };
+
+            Events.listenEvent(scope, Events.ON_RESUME_APP, function (evt) {
                 for (var i = 0; i < menuArray.length; i++) {
                     if (i == 1) menuArray[i].style.opacity = 1;
                     else menuArray[i].style.opacity = 0;
                 }
-                Events.triggerEvent(Events.ON_RESUME_APP);
-            };
-
+            });
         };
         
         return {

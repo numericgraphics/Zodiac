@@ -6,9 +6,9 @@
         //INIT
         var init = function () {
             console.log('init start');
-            try {
-                navigator.splashscreen.hide();
-            } catch (e) { alert('ERROR on navigator.splashscreen.hide'); }
+            //try {
+            //    navigator.splashscreen.hide();
+            //} catch (e) { alert('ERROR on navigator.splashscreen.hide'); }
             
             console.log('init end');
         };

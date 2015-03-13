@@ -38,6 +38,7 @@
     <Content Include="LICENSE" />
     <Content Include="plugins\android.json" />
     <Content Include="README.md" />
+    <Content Include="www\config.xml" />
     <Content Include="www\css\app.css" />
     <Content Include="www\css\ionicons.css" />
     <Content Include="www\fonts\ionicons.ttf" />

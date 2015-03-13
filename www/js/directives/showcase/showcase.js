@@ -6,9 +6,6 @@
             scope.list = [];
             scope.selected = 1;
 
-            //scope.imgHeight = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-            //scope.imgHeight -= 100;
-            //scope.imgWidth = scope.imgHeight * 1.78;
             scope.imgHeight = 575;
             scope.imgWidth = 1024;
 
@@ -25,10 +22,11 @@
                     stopmove();
                 }
                 //console.log('deltaX :', e.gesture.deltaX);
-                //console.log('velocityX :', e.gesture.velocityX);
                 mayGesture = false;
                 var movement = -float2int(e.gesture.deltaX / swipeStep);
-                var time = 2 / float2int(e.gesture.velocityX);
+                //var time = 2.5 - (1 / float2int(e.gesture.velocityX));
+                var time = 2 - (movement / scope.rangeMax)
+                //console.log('velocityX :', e.gesture.velocityX, time);
                 anim.ref = scope.selected;
                 anim.value = 1;
                 currentTween = TweenLite.to(anim, time, { value: movement, onUpdate: swipePics, onComplete: endGesture });
