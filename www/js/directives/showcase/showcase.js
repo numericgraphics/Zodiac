@@ -21,7 +21,7 @@
                 if (!mayGesture) {
                     stopmove();
                 }
-                //console.log('deltaX :', e.gesture.deltaX);
+                console.log('deltaX :', e.gesture.deltaX);
                 mayGesture = false;
                 var movement = -float2int(e.gesture.deltaX / swipeStep);
                 //var time = 2.5 - (1 / float2int(e.gesture.velocityX));
@@ -76,7 +76,7 @@
                     t = scope.rangeMax;
                 }
                 //console.log('t : ', t);
-                scope.$apply(scope.selected = t);
+                if(scope.selected != t) scope.$apply(scope.selected = t);
             };
             
             $ionicGesture.on('swiperight', onswipe, element);
