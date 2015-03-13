@@ -1,0 +1,85 @@
+<!--<ion-view class="title-center" title="
+    <i class='icon ion-medkit'></i>" ng-init="init()">-->
+
+<ion-view ng-init="init()">
+
+    <ion-nav-title>
+        <i class='icon ion-medkit'></i>
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="home"></button>
+    </ion-nav-buttons>
+
+    <!--<ion-view ng-init="init()">-->
+    <!--<ion-nav-button side="primary">
+        <i class='icon ion-medkit'></i>
+    </ion-nav-button>-->
+
+    <ion-content class="has-header has-footer padding">
+        <!--<div class="row" style="text-align:center;"><h3><i class="icon ion-medkit"></i></h3><h3> Postes de Secours</h3></div>-->
+
+        <h1 translate><i class="icon ion-medkit"></i> Emergency stations</h1>
+
+
+        <h5 translate>We have two aid stations: <br>- chairlift Summit of the la Marquises <br>- chairlift Summit of the l'Aiguille</h5>
+
+        <div class="card">
+            <div class="item item-divider">
+                <p translate>Emergency stations phones</p>
+            </div>
+            <div class="item item-text-wrap item-button-right">
+                +33 (04) 79 06 95 15
+                <a href="tel:04 79 06 95 15" class="button button-assertive">
+                    <i class="icon ion-ios-telephone"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="item item-divider">
+                <p translate>police station</p>
+            </div>
+            <div class="item item-text-wrap item-button-right">
+                17 ou +33 (0)4 79 07 04 25
+                <a href="tel:04 79 07 04 25" class="button button-assertive">
+                    <i class="icon ion-ios-telephone"></i>
+                </a>
+            </div>
+        </div>
+
+        <div ng-show="onLineStatus != 'DEVICE_ONLINE'">
+            <div class="card">
+                <div class="item item-text-wrap">
+                    <h3 translate>Application currently offline !</h3>
+                    <p translate>We are sorry, GPS can not be updated !</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" ng-show="onLineStatus == 'DEVICE_ONLINE'">
+            <div class="item item-divider">
+                <p translate>Your GPS coordinates (decimal degrees)</p>
+            </div>
+            <div class="list" style="margin-top: 20px !important; margin-bottom: 20px !important">
+                <a class="item">
+                    <p>
+                        Latitude
+                        <span class="item-note">
+                            {{lat}}
+                        </span>
+                    </p>
+                </a>
+                <a class="item">
+                    <p>
+                        Longitude
+                        <span class="item-note">
+                            {{long}}
+                        </span>
+                    </p>
+                </a>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

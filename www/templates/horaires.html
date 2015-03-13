@@ -1,0 +1,129 @@
+
+
+<ion-view  ng-init="init()">
+
+    <ion-nav-title>
+        <i class='icon ion-clock'></i>
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="home"></button>
+    </ion-nav-buttons>
+
+
+    
+
+
+
+    <ion-content class="has-header has-footer padding" delegate-handle="mainScrollHoraire">
+
+        <h1 translate><i class="icon ion-clock"></i> Shuttle schedules</h1>
+
+        <h5 translate>periods : December 13, 2014 to April 12, 2015</h5>
+
+        <div class="list">
+
+            <div ng-repeat="dayPart in horaires">
+
+                <div class="item item-divider" style="height: 60px !important; border-style: none;">
+                    <h2 style="margin: 10px;">{{dayPart.titre | translate}}</h2>
+                </div>
+
+                <!--<div >-->
+
+                <a class="item" ng-repeat="hour in dayPart.obj" ng-class="{ highlightHoraire : hour.isSelected }" ng-attr-id="{{'item_'+hour.isSelected}}">
+                   <small>{{hour.text}}</small> 
+                    <span class="item-note">
+                        {{hour.hours}} : {{hour.minute}}
+                    </span>
+                </a>
+                <!--</div>-->
+            </div>
+            <h5 translate>* french school holidays only</h5>
+            <!--<div class="item item-divider">
+                MATIN
+            </div>
+
+            <a class="item">
+                Départ CHEF LIEU
+                <span class="item-note">
+                    8 h 30
+                </span>
+            </a>
+
+            <a class="item">
+                Départ STATION
+                <span class="item-note">
+                    8 h 50
+                </span>
+            </a>
+
+            <a class="item">
+                Départ MIROIR
+                <span class="item-note">
+                    09 h 15
+                </span>
+            </a>
+
+            <a class="item">
+                Départ CHEF LIEU
+                <span class="item-note">
+                    09 h 30
+                </span>
+            </a>
+
+            <a class="item">
+                Départ STATION
+                <span class="item-note">
+                    10 h 00
+                </span>
+            </a>
+
+            <a class="item">
+                Départ CHEF LIEU
+                <span class="item-note">
+                    10 h 20
+                </span>
+            </a>
+
+            <a class="item">
+                Départ STATION
+                <span class="item-note">
+                    10 h 50
+                </span>
+            </a>
+
+            <a class="item">
+                Départ MIROIR
+                <span class="item-note">
+                    11 h 10
+                </span>
+            </a>
+
+            <div class="item item-divider">
+                APRES-MIDI
+            </div>
+
+            <a class="item">
+                Départ STATION
+                <span class="item-note">
+                    12 h 30
+                </span>
+            </a>
+
+            <a class="item">
+                Départ MIROIR
+                <span class="item-note">
+                    12 h 50
+                </span>
+            </a>
+
+            <a class="item">
+                Départ CHEF LIEU
+                <span class="item-note">
+                    13 h 00
+                </span>
+            </a>-->
+
+        </div>
+    </ion-content>
+</ion-view>

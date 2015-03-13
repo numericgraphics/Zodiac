@@ -1,0 +1,49 @@
+<ion-view>
+
+    <ion-nav-title>
+        <i class='icon ion-ios-book'></i>
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="home"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header has-footer padding">
+        <h1 translate><i class="icon ion-ios-book"></i> Directory</h1>
+
+        <h5 translate>Book, order, click ...</h5>
+
+        <div class="list" ng-repeat="group in stream">
+            <div class=" item-divider" style="border-style: none;">
+                <h3 class="icon" ng-class="{
+
+                                                'ion-fork' : group.industry.industry_name == 'Restaurants',
+                                                'ion-wineglass' : group.industry.industry_name == 'Bars',
+                                                'ion-volume-high' : group.industry.industry_name == 'Night Clubs',
+                                                'ion-ios-home' : group.industry.industry_name == 'Hotels',
+                                                'ion-radio-waves' : group.industry.industry_name == 'Tourism offices',
+                                                'ion-person-stalker' : group.industry.industry_name == 'Associations',
+                                                'ion-videocamera' : group.industry.industry_name == 'Cinemas',
+                                                'ion-settings' : group.industry.industry_name == 'Artisans',
+                                                'ion-ios-cart' : group.industry.industry_name == 'Shops',
+                                                'ion-pizza' : group.industry.industry_name == 'Restaurant-bars',
+                                                'ion-ios-snowy' : group.industry.industry_name == 'Ski lessons',
+                                                'ion-ios-home-outline' : group.industry.industry_name == 'Lodging',
+                                                'ion-ios-flower-outline' : group.industry.industry_name == 'Ski schools',
+                                                'ion-model-s' : group.industry.industry_name == 'Transportation / Taxis',
+                                                'ion-paintbrush' : group.industry.industry_name == 'Communication',
+                                                'ion-ios-medkit' : group.industry.industry_name == 'Health'
+
+                     }"
+                    style="margin-left: 10px; margin-top: 10px;">
+                    {{group.industry.industry_name | translate}}
+                </h3>
+            </div>
+            <div ng-repeat="item in group.shops" ng-click="clickItem($index, item)">
+                <a class="item">
+                    <p> {{item.name}} </p>
+                </a>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

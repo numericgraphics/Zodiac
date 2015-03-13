@@ -1,0 +1,71 @@
+<script id="data" type="text/template" rawdata>
+
+    [ {
+    title: 'Numericgraphics',
+    text: 'Nous vous proposons nos services pour toutes vos idees, vos creations.',
+    image: 'numericgraphics-logo.png'
+    }, {
+    title: 'Graphic Design',
+    text: 'Graphic design is the methodology of visual communication, and problem-solving through the use of type, space and image. The field is considered a subset of visual communication and communication design, but sometimes the term "graphic design" is used interchangeably with these due to overlapping skills involved',
+    image: 'design-graphic.jpg'
+    }, {
+    title: 'Web Design',
+    text: 'Web design encompasses many different skills and disciplines in the production and maintenance of websites. The different areas of web design include web graphic design; interface design; authoring, including standardised code and proprietary software; user experience design; and search engine optimization.',
+    image: 'web-design.jpg'
+    }]
+
+</script>
+
+
+
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title" translate>Directory</h1>
+        <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
+    </ion-header-bar>
+    <ion-content scroll="false">
+
+        <ion-pane ng-controller="CardsCtrl">
+
+            <swipe-cards>
+                <swipe-card on-card-swipe="cardSwiped()">
+                    <div class="card">
+                        <div class="item item-text-wrap" style="width: 100%; height: 100%; margin-top: 20px; ">
+                            <img ng-src="{{cardTypes[0].image}}" style="display: block; width: 100%; height: auto; max-width: 250px; margin-left: auto; margin-right: auto;">
+                            <h3>{{cardTypes[0].title}}</h3>
+                            <p>{{cardTypes[0].text}}</p>
+                        </div>
+                        <div class="item tabs tabs-secondary tabs-icon-left">
+                            <a class="tab-item" href="" ng-click="onClickDetail(selectedShop.website)" ng-if="selectedShop.website != ''">
+                                <i class="icon ion-information-circled"></i>
+                                <span translate>Website</span>
+                            </a>
+                            <a class="tab-item" ng-href="tel:{{selectedShop.phone}}">
+                                <i class="icon ion-ios-telephone-outline"></i>
+                            </a>
+                        </div>
+                    </div>
+                </swipe-card>
+                <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)">
+                    <div class="card" ng-controller="CardCtrl">
+                        <div class="item item-text-wrap" style="width: 100%; height: 100%; margin-top: 20px; ">
+                            <img ng-src="{{card.image}}" style="display: block; width: 100%; height: auto; max-width: 250px; margin-left: auto; margin-right: auto;">
+                            <h3 style="margin-top:10px">{{card.title}}</h3>
+                            <p>{{card.text}}</p>
+                        </div>
+                        <div class="item tabs tabs-secondary tabs-icon-left" ng-show="cardCurrentIndex == 0">
+                            <a class="tab-item" href="" ng-click="onClickDetail(selectedShop.website)" ng-if="selectedShop.website != ''">
+                                <i class="icon ion-information-circled"></i>
+                                <span translate>Website</span>
+                            </a>
+                            <a class="tab-item" ng-href="tel:{{selectedShop.phone}}">
+                                <i class="icon ion-ios-telephone-outline"></i>
+                            </a>
+                        </div>
+                    </div>
+                </swipe-card>
+            </swipe-cards>
+        </ion-pane>
+
+    </ion-content>
+</ion-modal-view>

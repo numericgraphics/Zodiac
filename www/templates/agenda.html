@@ -1,0 +1,36 @@
+<!--<ion-view class="title-center" title="
+    <i class='icon ion-calendar'></i>">-->
+
+<ion-view>
+
+    <ion-nav-title>
+        <i class='icon ion-calendar'></i>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="home"></button>
+    </ion-nav-buttons>
+    <!--<ion-nav-button side="primary">
+        <i class='icon ion-calendar'></i>
+    </ion-nav-button>-->
+
+    <ion-content class="has-header has-footer padding" delegate-handle="mainScrollHoraire">
+        <h1 translate><i class="icon ion-calendar"></i> Organizer</h1>
+
+        <h5 translate>Do not miss any events, no appointment !</h5>
+
+        <div class="list" ng-repeat="month in stream" >
+            <div class="item item-divider" style="border-style: none;" ng-class="{ highlightHoraire : month.isSelected }" ng-attr-id="{{'item_'+month.isSelected}}">
+                {{month.month_en | translate}}
+            </div>
+            <div ng-repeat="ev in month.events" ng-click="openModal(ev)">
+                <a class="item">
+                    <h5>{{(ev.start_date*1000) | date : 'short'}}</h5>
+                    <h3>{{ev.name}}</h3>
+                    <p>{{ev.venue}}</p>
+                    <h4>{{ev.byline}}</h4>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

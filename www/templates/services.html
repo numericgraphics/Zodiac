@@ -1,0 +1,133 @@
+
+
+<ion-view>
+
+    <ion-nav-title>
+        <i class='icon ion-happy-outline'></i>
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="home"></button>
+    </ion-nav-buttons>
+
+
+
+
+
+
+    <ion-content class="has-header has-footer padding">
+
+        <h1><i class="icon ion-happy-outline"></i> Services</h1>
+
+        <h5 translate>We provide you a concierge service :</h5>
+
+        <div class="list">
+            <!--<h5 translate>- key gathering,</h5>
+            <h5 translate>- home delivery of Beaufort cheese on Friday,</h5>
+            <h5 translate>- home delivery of newspapers and pastries in the morning.</h5>-->
+
+
+
+
+
+            <a class="item item-icon-left" href="#" translate>
+                <i class="icon ion-key"></i> Key gathering
+            </a>
+
+            <a class="item item-icon-left" href="#" translate>
+                <i class="icon ion-ios-heart"></i> Home delivery of Beaufort cheese*
+            </a>
+
+            <a class="item item-icon-left" href="#" translate>
+                <i class="icon ion-ios-alarm"></i> Home delivery of newspapers and pastries**
+            </a>
+
+            <a class="item item-icon-left" href="#" translate>
+                <i class="icon ion-wineglass"></i> Home delivery of alcool***
+            </a>
+
+            <a class="item item-icon-left" href="#" translate>
+                <i class="icon ion-icecream"></i> Baby sitting
+            </a>
+
+            <a class="item item-icon-left" href="#" translate>
+                <i class="icon ion-ios-color-wand"></i> Cleaning service
+            </a>
+
+        </div>
+        <h6 translate>* on Friday, ** in the morning, *** in the evening</h6>
+
+
+
+
+
+        <!--serviceName, name, mail, msg, phoneNumber, callback)-->
+        <div style="margin-top:40px">
+            <h5 translate>Contact us if you are interested in any of these services or other demands. Complete the form below, we will contact you as soon as possible, thank you.</h5>
+        </div>
+        
+            <form method="post" class="form" name="log" id="log" novalidate>
+                <div class="form-group">
+                    <label class="item item-input">
+                        <textarea placeholder="Services" ng-model="dataSend.service" required></textarea>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="item item-input">
+                        <textarea placeholder="message" style="height:100px!important" ng-model="dataSend.message" required></textarea>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="item item-input">
+                        <input type="text" placeholder="{{'Phone' | translate}}" class="form-control" ng-model="dataSend.phone" required>
+                    </label>
+                </div>
+
+
+                <button class="button button-full button-positive" ng-click="sendUserServices()" ng-disabled="log.$invalid">
+                    <p translate>Validate</p>
+                </button>
+            </form>
+
+            <div class="card" ng-show="isSendMessageDone">
+                <div class="item item-text-wrap">
+                    <p translate>Thank you. we'll contact you as soon as possible.</p>
+                </div>
+            </div>
+        <!--<div class="list">
+        <div class="item item-divider">
+            Sports
+        </div>
+        <a class="item item-icon-left" href="#">
+            <i class="icon ion-happy"></i>
+            Ski joering
+        </a>
+        <a class="item item-icon-left" href="#">
+            <i class="icon ion-happy"></i>
+            Dog sledding
+        </a>
+        <a class="item item-icon-left" href="#">
+            <i class="icon ion-happy"></i>
+            Snow car driving
+        </a>
+        <a class="item item-icon-left" href="#">
+            <i class="icon ion-happy"></i>
+            Ski lessons
+        </a>
+        <div class="item item-divider">
+            Helps
+        </div>
+        <a class="item item-icon-left" href="#">
+            <i class="icon ion-happy"></i>
+            Shopping service
+        </a>
+        <a class="item item-icon-left" href="#">
+            <i class="icon ion-happy"></i>
+            Pharmacy service
+        </a>
+        <a class="item item-icon-left" href="#">
+            <i class="icon ion-happy"></i>
+            Need a pizza ?
+        </a>
+        </div>-->
+    </ion-content>
+</ion-view>

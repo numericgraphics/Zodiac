@@ -1,0 +1,39 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title" translate>Event</h1>
+        <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
+    </ion-header-bar>
+    <ion-content>
+
+        <div class="card">
+            <div class="item">
+                <h2>{{selectedEvent.name}}</h2>
+                <p>{{(selectedEvent.start_date*1000) | date : 'short'}}</p>
+                <p>{{selectedEvent.venue}} </p>
+            </div>
+
+            <div class="item item-body">
+                <p>{{'Address'| translate}} : {{selectedEvent.address}} </p>
+                <p>Style : {{selectedEvent.style_name}} </p>
+                <p>{{selectedEvent.description}} </p>
+                <p ng-show="selectedEvent.description == ''">{{selectedEvent.byline}} </p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="" ng-click="onClickDetail(selectedEvent.website)" ng-if="selectedEvent.website != ''">
+                    <i class="icon ion-information-circled"></i>
+                    <span translate>Website</span>
+                </a>
+                <span class="tab-item" ng-show="selectedEvent.cost == '0' || selectedEvent.cost == 'N/A'" style="cursor: Default; ">
+                    <i class="icon icon ion-ios-circle-filled"></i>
+                    <span translate>Free</span>
+                </span>
+                <span class="tab-item" ng-show="selectedEvent.cost != '0' && selectedEvent.cost != 'N/A'" style="cursor: Default; ">
+                    <i class="icon icon ion-card"></i>
+                    {{selectedEvent.cost}} euros
+                </span>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-modal-view>

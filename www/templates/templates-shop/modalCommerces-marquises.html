@@ -1,0 +1,42 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title" translate>Directory</h1>
+        <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
+    </ion-header-bar>
+    <ion-content >
+
+
+        <!--CONTENT CLASSIC--><!---->
+        <div class="list card">
+
+            <div class="row">
+                <img class="imageElement" ng-src="{{selectedShop.assetDir}}logo-marquises.jpg" style="width: 100px; height: 100px;" />
+                <h3 style="text-align: left !important; margin-top: 30px; margin-left: 10px;" class="col">{{selectedShop.name}}</h3>
+            </div>
+
+            <div class="item item-body">
+
+                <img ng-src="{{selectedShop.assetDir}}photo-inside.jpg" style="display: block; width: 100%; height: auto; max-width: 300px; margin-left: auto; margin-right: auto;">
+
+
+                <h4 ng-bind-html="selectedShop.address"></h4>
+
+                <p ng-bind-html="selectedShop.description">
+
+                </p>
+
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="" ng-click="onClickDetail(selectedShop.website)" ng-if="selectedShop.website != ''">
+                    <i class="icon ion-information-circled"></i>
+                    <span translate>Website</span>
+                </a>
+                <a class="tab-item" ng-href="tel:{{selectedShop.phone}}">
+                    <i class="icon ion-ios-telephone-outline"></i>
+                </a>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,148 @@
+
+<ion-view>
+
+    <ion-nav-title>
+        <i class='icon ion-cloud'></i>
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="home"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header has-footer padding">
+        <h1 translate><i class="icon ion-ios-snowy"></i> Snow report - Ski area</h1>
+
+        <div ng-show="onLineStatus != 'DEVICE_ONLINE'">
+            <div class="card">
+                <div class="item item-text-wrap">
+                    <h3 translate>Application currently offline !</h3>
+                    <p translate>We are sorry, this information can not be updated !</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h5 translate>Here's the latest report :</h5>
+
+            <div>
+                Report : {{meteoDate | date:'medium'}}
+            </div>
+
+            <div class="card">
+                <div class="item item-divider item-text-wrap">
+                    Zones G&eacute;ographiques
+                </div>
+                <div class="panel-body">
+                    <div class="container-fluid" style="margin:20px">
+
+                        <ion-list>
+                            <div ng-repeat="group in bulletin">
+                                <ion-item class="item-stable"
+                                          style="border-color:white"
+                                          ng-click="toggleGroup(group)"
+                                          ng-class="{active: isGroupShown(group)}">
+                                    <div class="row">
+                                        <i class="icon" ng-class="isGroupShown(group) ? 'ion-ios-circle-filled' : 'ion-ios-circle-outline'"></i>
+                                        <h2>&nbsp;{{group.nom}}</h2>
+                                    </div>
+                                </ion-item>
+                                <ion-item class="item-accordion item-icon-right"
+                                          style="border-color:white"
+                                          ng-show="isGroupShown(group)">
+                                    <div class="form-group">
+                                        <label for="risque" class="col-sm-5 control-label">Altitude :</label> {{group.altitude}}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="risque" class="col-sm-5 control-label">Temperature :</label> {{group.temp}}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="risque" class="col-sm-5 control-label" translate>Accumulated snow :</label> {{group.neige}}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="risque" class="col-sm-5 control-label" translate>Fresh snow :</label> {{group.neige_fraiche}}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="risque" class="col-sm-5 control-label" translate>Snow quality :</label> {{group.neige_qualite}}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="visibilite" class="col-sm-5 control-label" translate>Visibility :</label>{{group.visibilite}}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vent" class="col-sm-5 control-label" translate>Wind :</label> {{group.vent}}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="risque" class="col-sm-5 control-label" translate>Avalanche risk :</label> {{group.risque}}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="isotherme" class="col-sm-5 control-label" translate>Isotherm 0 :</label> {{group.isotherme_0}}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="isotherme" class="col-sm-5 control-label" translate>Isotherm 10 :</label> {{group.isotherme_10}}
+                                    </div>
+                                </ion-item>
+                            </div>
+                        </ion-list>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item item-divider item-text-wrap" translate>
+                Ski area
+            </div>
+            <div class="panel-body">
+
+                <div class="card" ng-repeat="rem in domaine">
+
+                    <div class="item">
+                        <h1>Zone {{rem.nom}}</h1>
+                    </div>
+                    <div class="item">
+                        <h2 style="font-size: 1.3em;" translate>Ski lifts :</h2>
+                        <div class="row">
+                            <div class="col" ng-repeat="r in rem.remontes">
+                                <div class="row">
+                                    <h1 style="text-align: left;"><i class="icon ion-ios-circle-filled " ng-class="{'balanced'  : r.ouvert == true, 'assertive' : r.ouvert == false }"></i>  </h1>
+                                    <h2 style="margin-top: 10px; margin-left: 5px;">{{r.nom}}</h2>
+                                </div>
+                                <h3> <small translate>Opening :</small> {{r.ouverture}}</h3>
+                                <h3><small translate>Closing :</small> {{r.fermeture}}</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item item-body">
+                        <h2 style="font-size: 1.3em;" translate>Slopes :</h2>
+                        <table style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th><h6 style="text-align: left! important;" translate>Name</h6></th>
+                                    <th><h6 translate>difficulty</h6></th>
+                                    <th><h6 translate>Opening</h6></th>
+                                    <th><h6 translate>Schedule</h6></th>
+                                    <th><h6 translate>Quality</h6></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><h3 style="text-align: left! important;">{{rem.pistes[0].nom}}</h3></td>
+                                    <td><p style="text-align: center;">{{rem.pistes[0].niveau}}</p></td>
+                                    <td><h4 style="text-align: center;"><i class="icon ion-ios-circle-filled" ng-class="{'balanced' : rem.pistes[0].ouvert == true, 'assertive' : rem.pistes[0].ouvert == false }"></i>  </h4></td>
+                                    <td><div class="col"><p style="text-align: center;">{{rem.pistes[0].ouverture}}</p></div></td>
+                                    <td><div class="col"><p style="text-align: center;">{{rem.pistes[0].qualite}}</p></div></td>
+                                </tr>
+                                <tr ng-repeat="n in range(1, rem.pistes.length)">
+                                    <td><h3 style="text-align: left! important;">{{rem.pistes[n].nom}}</h3></td>
+                                    <td><p style="text-align: center;">{{rem.pistes[n].niveau}}</p></td>
+                                    <td><h4 style="text-align: center;"><i class="icon ion-ios-circle-filled" ng-class="{'balanced' : rem.pistes[n].ouvert == true, 'assertive' : rem.pistes[n].ouvert == false }"></i>  </h4></td>
+                                    <td><div class="col"><p style="text-align: center;">{{rem.pistes[n].ouverture}}</p></div></td>
+                                    <td><div class="col"><p style="text-align: center;">{{rem.pistes[n].qualite}}</p></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

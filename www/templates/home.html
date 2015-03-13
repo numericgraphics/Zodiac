@@ -1,0 +1,129 @@
+<ion-view >
+
+    <ion-nav-title>
+        <i class='icon ion-home'></i>
+    </ion-nav-title>
+
+    <ion-side-menus>
+
+        <ion-side-menu-content enable-menu-with-back-views="false">
+
+            <ion-content class="has-header has-footer padding" style="">
+
+                <div class="card slideContentLeft" ng-show="showWelcome">
+                    <div class="item item-text-wrap">
+                        <h2><i class="icon ion-person"></i> {{'Welcome'| translate}} {{arrayUserInfos.firstname}} </h2>
+                        <p translate>Click on the logo at the bottom of the application to contact us. Swipe left to access to news and flash bulletins. If you have an idea or a wish, let us know. Good ski, enjoy your stay.</p>
+
+                    </div>
+                </div>
+
+                <div class="card slideContentLeft" ng-show="showMeteo">
+                    <div class="item item-icon-left item-icon-right item-divider">
+                        <h2><i class="icon ion-cloud" style="margin-left:-40px"></i> {{'Weather Report'| translate}}</h2>
+                        <i class="icon ion-close-circled" ng-click="setCardState()"></i>
+                    </div>
+                    <div class="item item-text-wrap" ng-show="openCard">
+                        <p >Date</p><h4>{{modelMeteo.date | date:'medium'}}</h4>
+                        <p translate>Today</p><h4>{{modelMeteo.today}}</h4>
+                        <p translate>Tomorrow</p><h4>{{modelMeteo.tomorrow}}</h4>
+                        <p translate>Week</p><h4>{{modelMeteo.week}}</h4>
+                        <p translate>Comment</p><h4>{{modelMeteo.comment}}</h4>
+                    </div>
+                </div>
+
+                <ul class="list">
+
+                    <li class="item item-icon-left item-icon-right item-checkbox" style="border-style: none !important; background: rgb(242, 242, 242); ">
+                        <i class="icon ion-shuffle"></i>
+                        <p style="text-align:left;">English / Fran&ccedil;ais</p>
+                        <label class="checkbox" ng-model="isFrench" ng-click="onToggleChange()">
+                            <input type="checkbox">
+                        </label>
+
+                    </li>
+
+                </ul>
+
+                <div class="list">
+
+                    <a class="item item-icon-left item-icon-right"  ng-click="clickCategory('menu.secours')">
+                        <i class="icon ion-medkit"></i>
+                        <p style="text-align:left;" translate>Rescue</p>
+                        <i class="icon ion-ios-telephone-outline"></i>
+                    </a>
+
+                    <a class="item item-icon-left"  ng-click="clickCategory('menu.meteo')">
+                        <i class="icon ion-ios-snowy"></i>
+                        <p style="text-align:left;" translate>Snow report - Ski area</p>
+                    </a>
+
+                    <a class="item item-icon-left"  ng-click="clickCategory('menu.plan')">
+                        <i class="icon ion-map"></i>
+                        <p style="text-align:left;" translate>Ski map</p>
+                    </a>
+
+                    <a class="item item-icon-left"  ng-click="clickCategory('menu.onlineSkipass')">
+                        <i class="icon ion-pricetag"></i>
+                        <p style="text-align:left;" translate>Online Ski pass</p>
+                    </a>
+
+                    <a class="item item-icon-left"  ng-click="clickCategory('menu.planStationVillage')" ng-class=" { 'disable-pointer-events': isEnabled ,
+                                                                                    'disable-user-behavior': isEnabled}">
+                        <i class="icon ion-android-map" ng-class=" { 'itemGrey': isEnabled}"></i>
+                        <p style="text-align:left;" ng-class=" {  'itemGrey': isEnabled}" translate>Accommodation Map</p>
+                    </a>
+
+                    <a class="item item-icon-left"  ng-click="clickCategory('menu.horaires')">
+                        <i class="icon ion-clock"></i>
+                        <p style="text-align:left;" translate>Shuttle schedules</p>
+                    </a>
+
+                    <a class="item item-icon-left"  ng-click="clickCategory('menu.agenda')">
+                        <i class="icon ion-calendar"></i>
+                        <p style="text-align:left;" translate>Organizer</p>
+                    </a>
+                    <a class="item item-icon-left"  ng-click="clickCategory('menu.webcams')">
+                        <i class="icon ion-videocamera"></i>
+                        <p style="text-align:left;" translate>Webcams</p>
+                    </a>
+
+                    <a class="item item-icon-left"  ng-click="clickCategory('menu.commerces')">
+                        <i class="icon ion-ios-book"></i>
+                        <p style="text-align:left;" translate>Directory</p>
+                    </a>
+
+                    <a class="item item-icon-left"  ng-click="clickCategory('menu.services')">
+                        <i class="icon ion-happy-outline"></i>
+                        <p style="text-align:left;" translate>Services</p>
+                    </a>
+
+                </div>
+            </ion-content>
+        </ion-side-menu-content>
+
+        <ion-side-menu side="left" width="deviceWidth" on-swipe-left="onSwipeLeft()">
+
+            <ion-content class="has-header has-footer padding" style="">
+
+                <div class="slideContentLeft">
+                    <div class="card" ng-repeat="item in arrayNews">
+                        <div class="item item-avatar headerCardBackground" ng-show="isNews(item)">
+                            <img ng-src="{{item.logotag}}" style="width:80px; height:80px">
+                            <h2 >{{item.news_venue}}</h2>
+                        </div>
+                        <div class="item item-text-wrap">
+                            <h3>{{item.title }}</h3>
+                            <p>{{item.creation * 1000 |  date : 'short' }}</p>
+                            <img ng-show="item.picturebody.length > 0" ng-src="{{item.picturebody}}" style="width: 100%; height: auto; max-width: 300px; margin-left: auto !important; margin-right: auto !important; ">
+                            <p ng-bind-html="item.body | linky | hrefToJS"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </ion-content>
+
+        </ion-side-menu>
+
+    </ion-side-menus>
+</ion-view>

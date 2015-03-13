@@ -1,0 +1,123 @@
+<!--<script id="data" type="text/template" rawdata>
+
+    [ {
+    title: "Auberge sur la Montagne",
+    text: "The Auberge sur la Montagne is our owner-run, boutique, catered chalet featuring contemporary design in a rustic setting. It is located in the peaceful alpine village of La Thuile, just 3kms from the resort. There are 5 comfortable bedrooms in the main chalet sleeping up to 15 guests, with additional accommodation for 6 in the adjoining Garden Wing apartment. We have a spacious lounge with well-stocked bar and roaring log fire and a separate Kids Den.  In our stylish dining room we serve delicious meals freshly-prepared by our professional chef.",
+    image: "aubergeetchalet-auberge.jpg"
+    }, {
+    title: "Chalets sur la Montagne",
+    text: "Chalets sur la Montagne are a selection of comfortable, affordable, family-friendly catered and self-catered chalets and apartments in the heart of Sainte Foy resort. Ranging from the cute little Bubble House, just for two, to the spacious Great Escape sleeping 14, you're sure to find your perfect holiday accommodation.",
+    image: "aubergeetchalet-chalet.jpg"
+    }]
+
+</script>-->
+
+
+<!--<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title" translate>Directory</h1>
+        <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
+    </ion-header-bar>
+    <ion-content scroll="false">
+
+        <ion-pane ng-controller="CardsCtrl">
+
+
+
+
+            <swipe-cards>
+                <swipe-card on-card-swipe="cardSwiped()">
+                    <div class="card">
+                        <div class="" style="width: 100%; height:100%; ">
+                            <img ng-src="{{cardTypes[0].image}}" style="display: block; width: 100%; height: auto; max-width: 300px; margin-left: auto; margin-right: auto;">
+                            <h3 style="padding-top:5px; text-align: center;  color: blue" ng-bind-html="cardTypes[0].title"></h3>
+                            <p ng-bind-html="cardTypes[0].text" style="margin:5px">
+</div>
+                        <div class="item tabs tabs-secondary tabs-icon-left">
+                            <a class="tab-item" href="" ng-click="onClickDetail(selectedShop.website)" ng-if="selectedShop.website != ''">
+                                <i class="icon ion-information-circled"></i>
+                                <span translate>Website</span>
+                            </a>
+                            <a class="tab-item" ng-href="tel:{{selectedShop.phone}}">
+                                <i class="icon ion-ios-telephone-outline"></i>
+                            </a>
+                        </div>
+                    </div>
+                </swipe-card>
+                <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)">
+                    <div class="card" ng-controller="CardCtrl">
+                        <div class="" style="width: 100%; height:100%; ">
+                            <img ng-src="{{card.image}}" style="display: block; width: 100%; height: auto; max-width: 300px; margin-left: auto; margin-right: auto;">
+                            <h3 style="padding-top: 5px; text-align: center; color: blue; " ng-bind-html="card.title"></h3>
+                            <p ng-bind-html="card.text" style="margin:5px">
+</div>
+                        <div class="item tabs tabs-secondary tabs-icon-left" ng-show="cardCurrentIndex == 0">
+                            <a class="tab-item" href="" ng-click="onClickDetail(selectedShop.website)" ng-if="selectedShop.website != ''">
+                                <i class="icon ion-information-circled"></i>
+                                <span translate>Website</span>
+                            </a>
+                            <a class="tab-item" ng-href="tel:{{selectedShop.phone}}">
+                                <i class="icon ion-ios-telephone-outline"></i>
+                            </a>
+                        </div>
+                    </div>
+                </swipe-card>
+            </swipe-cards>
+        </ion-pane>
+
+
+    </ion-content>
+</ion-modal-view>-->
+
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title" translate>Directory</h1>
+        <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
+    </ion-header-bar>
+    <ion-content>
+
+
+        <!--CONTENT CLASSIC-->
+        <div class="list card">
+
+            <div class="row">
+                <img class="imageElement" ng-src="{{selectedShop.assetDir}}aubergeetchalets.jpg" style="width: 100px; height: 100px;" />
+                <h3 style="text-align: left !important; margin-top: 30px; margin-left: 10px;" class="col">{{selectedShop.name}}</h3>
+            </div>
+
+            <div class="item-body">
+
+                <img ng-src="{{selectedShop.assetDir}}aubergeetchalet-auberge.jpg" style="display: block; width: 100%; height: auto; max-width: 300px; margin-left: auto; margin-right: auto;">
+
+
+                <h3 style="padding-top:5px; text-align: center;  color: blue">Auberge sur la Montagne</h3>
+                <p style="margin:5px">
+                    The Auberge sur la Montagne is our owner-run, boutique, catered chalet featuring contemporary design in a rustic setting. It is located in the peaceful alpine village of La Thuile, just 3kms from Sainte Foy resort. There are 5 comfortable bedrooms in the main chalet sleeping up to 15 guests, with additional accommodation for 6 in the adjoining Garden Wing apartment. We have a spacious lounge with well-stocked bar and roaring log fire and a separate Kid&rsquo;s Den.In our stylish dining room we serve delicious meals freshly-prepared by our professional chef. By choosing to stay at the Auberge sur la Montagne, you&rsquo;ll benefit from our personal service, attention to detail, and the experience that comes with 20 years of ensuring that our guests enjoy their holidays to the full. <br /><br />
+                    <i>L&rsquo;Auberge sur la Montagne est situ&eacute;e au-dessus du village de La Thuile, un emplacement calme mais bien accessible aux stations de ski. C&rsquo;est un chalet savoyarde traditionnelle mais avec un style contemporain, doubl&eacute; d&rsquo;un accueil d&rsquo;Outre-manche. Nous avons 5 chambres confortables avec 15 couchages; un salon spacieuse avec bar et feu ronflant; une salle &agrave; manger, une cuisine avec &eacute;quipements professionnelles et une salle de t&eacute;l&eacute;/jeux enfants. Pour des grands groupes il y a de l&rsquo;h&eacute;bergement suppl&eacute;mentaire &agrave; L&rsquo;Aile du Jardin, un appartement 3 pi&egrave;ces ind&eacute;pendant au rez-de-chauss&eacute;e avec 2 chambres, chacun avec sa salle d&rsquo;eau, et un s&eacute;jour avec canap&eacute;-lit 2 places et coin-cuisine.En choisissant l&rsquo;Auberge sur la Montagne, vous profiterez de nos 20 ans d&rsquo;exp&eacute;rience et notre service personnalis&eacute; et professionnelle.</i>
+                </p>
+
+                <img ng-src="{{selectedShop.assetDir}}aubergeetchalet-chalet.jpg" style="margin-top:10px; display: block; width: 100%; height: auto; max-width: 300px; margin-left: auto; margin-right: auto;">
+
+
+                <h3 style="padding-top:5px; text-align: center;  color: blue">Chalets sur la Montagne</h3>
+                <p style="margin:5px">
+                    Chalets sur la Montagne are a selection of comfortable, affordable, family-friendly catered and self-catered chalets and apartments, situated mostly in the heart of Sainte Foy resort, a short walk from the lifts, slopes, shops bars and restaurants.  Ranging from the cute little Bubble House, just for two, to the spacious Great Escape sleeping 14, you&rsquo;re sure to find your perfect holiday accommodation.
+                    Wherever you choose to stay you&rsquo;ll benefit from our personal service and the experience that comes with 20 years of ensuring that our guests enjoy their holidays to the full.   <br /><br />
+                    <i>Chalets sur la Montagne est une s&eacute;lection de chalets et appartements de location, abordable et d&eacute;cor&eacute; avec go&ucirc;t, dont quelques&rsquo;uns sont disponible avec services. La plupart d&rsquo;entre eux sont situ&eacute;s au c&oelig;ur de la station de Sainte Foy &agrave; quelques pas des pistes, remont&eacute;es, ESF et commerces. N&rsquo; importe o&ugrave; vous choisir, vous profiterez de nos 20 ans d&rsquo;exp&eacute;rience et notre service professionnelle.</i>
+                </p>
+
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="" ng-click="onClickDetail(selectedShop.website)" ng-if="selectedShop.website != ''">
+                    <i class="icon ion-information-circled"></i>
+                    <span translate>Website</span>
+                </a>
+                <a class="tab-item" ng-href="tel:{{selectedShop.phone}}">
+                    <i class="icon ion-ios-telephone-outline"></i>
+                </a>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-modal-view>

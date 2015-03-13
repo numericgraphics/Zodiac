@@ -1,0 +1,39 @@
+
+
+<ion-view>
+
+    <ion-nav-title>
+        <i class='icon ion-map'></i> 
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="home"></button>
+    </ion-nav-buttons>
+
+
+    <ion-content class="has-header has-footer padding" overflow-scroll="true" id="containerMap" >
+        <!--<h1 translate><i class="icon ion-map"></i> Ski map</h1>
+        <h5 ng-show="isAlert" class="btn-danger" translate>Check the weather tab for important informations about slopes and ski lifts availabilities.</h5>
+        <h5 ng-show="!isAlert" class="alert-success" translate>All slopes and ski lifts are availables.</h5>
+
+        <h5 translate>Zoom, move the map</h5>-->
+
+        <ion-scroll direction="xy"
+                    paging="false"
+                    has-bouncing="false"
+                    scrollbar-x="false"
+                    scrollbar-y="false"
+                    zooming="true"
+                    min-zoom="{{minZoom}}"
+                    max-zoom="10"
+                    style="width: 100%; height: 100%; ">
+            <div class="imageContainer" id="containerMap">
+                <div>
+                    <img class="imageElement"
+                         src="img/plan.jpg" style="width: 849px; height: 849px;">
+                </div>
+            </div>
+        </ion-scroll>
+
+
+    </ion-content>
+</ion-view>

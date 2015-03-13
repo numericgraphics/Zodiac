@@ -1,0 +1,85 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">Sainte Foy Tarentaise</h1>
+        <div class="button button-clear" ng-click="closeModal(2)"><span class="icon ion-close"></span></div>
+    </ion-header-bar>
+    <ion-content>
+
+        <h1 class="padding" translate>Thank you.</h1>
+
+        <ul class="list" ng-show="!isUserInformationsDone">
+
+            <li class="item item-icon-left item-icon-right item-checkbox" style="border-style: none !important; background: rgb(242, 242, 242); ">
+                <i class="icon ion-shuffle"></i>
+                <p style="text-align:left;">English / Fran&ccedil;ais</p>
+                <label class="checkbox" ng-model="isFrench" ng-click="onToggleChange()">
+                    <input type="checkbox">
+                </label>
+
+            </li>
+
+        </ul>
+
+        <p class="padding" ng-show="!isUserInformationsDone" translate>Please read and accept our terms of use to access our application.</p>
+
+        <form method="post" class="form" name="cguForm" id="cguForm" novalidate ng-show="!isUserInformationsDone">
+
+            <div class="form-group">
+                <div class="item item-checkbox item-icon-right">
+                    <label class="checkbox">
+                        <input type="checkbox" class="form-control" ng-model="userInformations.cgu" required>
+                    </label>
+                    <a ng-click="openCGU()" translate>Terms of use</a>
+                </div>
+
+            </div>
+            <button class="button button-full button-positive" ng-click="closeModalwithoutSigning()" ng-disabled="cguForm.$invalid">
+                <p translate>Start without subscription</p>
+            </button>
+        </form>
+
+        <p class="padding" ng-show="!isUserInformationsDone" translate>
+            Complete the form below if you want to take full advantage of our services. Those informations are in no way mandatory to use this application and only allow us to improve your experience while browsing our services.
+        </p>
+
+        <form method="post" class="form" name="log" id="log" novalidate ng-show="!isUserInformationsDone">
+            <div class="form-group">
+                <label class="item item-input">
+                    <input type="text" placeholder="{{'Name' | translate}}" class="form-control" ng-model="userInformations.name" ng-minlength="3" required>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="item item-input">
+                    <input type="text" placeholder="{{'Firstname' | translate}}" class="form-control" ng-model="userInformations.firstname" ng-minlength="3" required>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="item item-input">
+                    <input type="Email" placeholder="Email" class="form-control" ng-model="userInformations.email" required>
+                </label>
+            </div>
+            <div class="form-group">
+                <div class="item item-checkbox item-icon-right">
+                    <label class="checkbox">
+                        <input type="checkbox" class="form-control" ng-model="userInformations.cgu" required>
+                    </label>
+                    <a ng-click="openCGU()" translate>Terms of use</a>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <button class="button button-full button-positive" ng-click="closeModalUserInformation()" ng-disabled="log.$invalid">
+                    <p translate>Register Now</p>
+                </button>
+            </div>
+
+        </form>
+
+        <div class="card" ng-show="isUserInformationsDone">
+            <div class="item item-text-wrap">
+                <p translate>Thank you.</p>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-modal-view>

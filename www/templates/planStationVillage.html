@@ -1,0 +1,48 @@
+<!--<ion-view class="title-center" title="
+    <i class='icon ion-medkit'></i>" ng-init="init()">-->
+
+<ion-view ng-init="init()">
+
+    <ion-nav-title>
+        <i class='icon ion-android-map'></i>
+    </ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="home"></button>
+    </ion-nav-buttons>
+
+    <!--<ion-view ng-init="init()">-->
+    <!--<ion-nav-button side="primary">
+        <i class='icon ion-medkit'></i>
+    </ion-nav-button>-->
+
+    <ion-content class="has-header has-footer padding">
+        <!--<div class="row" style="text-align:center;"><h3><i class="icon ion-medkit"></i></h3><h3> Postes de Secours</h3></div>-->
+
+        <h1 translate><i class="icon ion-android-map"></i> Accommodation Map</h1>
+
+
+        <h5 translate>Download our maps : <br>- Map of the area <br>- Map of the resort</h5>
+
+        <div class="card">
+            <div class="item item-text-wrap item-button-right">
+                <p translate>Map of the area</p>
+                <a ng-click="loadPDFVillages()" class="button button-assertive">
+                    <i class="icon ion-archive"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="item item-text-wrap item-button-right">
+                <p translate>Map of the resort</p> 
+                <a ng-click="loadPDFStation()" class="button button-assertive">
+                    <i class="icon ion-archive"></i>
+                </a>
+            </div>
+        </div>
+
+       
+
+
+    </ion-content>
+</ion-view>
